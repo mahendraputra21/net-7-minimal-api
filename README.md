@@ -1,4 +1,4 @@
-# NET 7 Minimal API Using Docker Dotnet CLI
+# .NET 7 Minimal API Using Docker Dotnet CLI
 
 ### Add the Microsoft.NET.Build.Containers nuget package using package manager console
 
@@ -33,11 +33,18 @@ dotnet publish command --os linux --arch x64
 docker run -it --rm -p 8080:80 todo-min-api:v1
 ```
 ![image](https://user-images.githubusercontent.com/31196162/209963110-2e197c74-2d99-49ce-ab9d-fcf353184854.png)
+![image](https://user-images.githubusercontent.com/31196162/209963554-ef21ff5c-8c7f-4b49-85c0-2a430efdbbe5.png)
+
+
 
 
 ### Create a Dummy Token using dotnet CLI
 ```
 dotnet user-jwts create
 ```
-![image](https://user-images.githubusercontent.com/31196162/209952584-b83af0fd-936f-4616-a3f2-377ba4482ccd.png)
+![image](https://user-images.githubusercontent.com/31196162/209964196-c9ddfd77-90a4-484b-bff0-3cec1b060b69.png)
 
+
+## References
+- https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2204
+- https://learn.microsoft.com/en-us/dotnet/core/install/windows?tabs=net70
