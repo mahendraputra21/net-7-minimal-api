@@ -7,13 +7,6 @@ add package Microsoft.NET.Build.Containers --version 0.2.7
 ```
 ![image](https://user-images.githubusercontent.com/31196162/209952797-b0c92560-5d72-46d6-96fc-82f72b53318c.png)
 
-
-### Publish the Docker image using dotnet CLI
-
-```
-dotnet publish command --os linux --arch x64
-```
-
 ### Add container properties in the PropertyGroup element in the project file
 ```
 <PropertyGroup>
@@ -24,6 +17,12 @@ dotnet publish command --os linux --arch x64
   <ContainerImageName>todo-min-api</ContainerImageName>
   <ContainerImageTag>v1</ContainerImageTag>
 </PropertyGroup>
+```
+
+### Publish the Docker image using dotnet CLI
+
+```
+dotnet publish command --os linux --arch x64
 ```
 
 ### Run the Container Image with Docker Command
