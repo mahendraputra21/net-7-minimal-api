@@ -38,7 +38,25 @@ docker run -it --rm -p 8080:80 todo-min-api:v1
 ### Type in the browser http://localhost:8080/swagger
 ![image](https://user-images.githubusercontent.com/31196162/209963554-ef21ff5c-8c7f-4b49-85c0-2a430efdbbe5.png)
 
+### Push into Docker Hub 
+```
+docker tag todo-min-api:v1 dewamahendra31/todo-minimal-api7:v1
+```
+```
+docker login --username dewamahendra31
+```
+![image](https://user-images.githubusercontent.com/31196162/209971038-881031e4-b4f2-4380-b2ec-fd4a0dcb7f47.png)
+```
+docker push dewamahendra31/todo-minimal-api7:v1
+```
+![image](https://user-images.githubusercontent.com/31196162/209971707-9d671683-eda5-44a5-9118-a89ed075bd70.png)
+![image](https://user-images.githubusercontent.com/31196162/209971940-59e830f9-29a7-4a53-ab1c-c255d47392a2.png)
 
+
+
+
+###
+###
 ### Create JSON Web Tokens in development using dotnet CLI (for development purpose only)
 ```
 dotnet user-jwts create
