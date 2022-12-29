@@ -5,6 +5,8 @@
 ```
 add package Microsoft.NET.Build.Containers --version 0.2.7
 ```
+![image](https://user-images.githubusercontent.com/31196162/209952797-b0c92560-5d72-46d6-96fc-82f72b53318c.png)
+
 
 ### Publish the Docker image using dotnet CLI
 
@@ -33,3 +35,5 @@ docker run -it --rm -p 8080:80 weatherforecast-api:1.0.0
 ```
 dotnet user-jwts create
 ```
+![image](https://user-images.githubusercontent.com/31196162/209952584-b83af0fd-936f-4616-a3f2-377ba4482ccd.png)
+
