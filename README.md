@@ -39,7 +39,7 @@ docker run -it --rm -p 8080:80 todo-min-api:v1
 ![image](https://user-images.githubusercontent.com/31196162/209963554-ef21ff5c-8c7f-4b49-85c0-2a430efdbbe5.png)
 
 
-### Create JSON Web Tokens in development using dotnet CLI (For Development Only)
+### Create JSON Web Tokens in development using dotnet CLI (for development purpose only)
 ```
 dotnet user-jwts create
 ```
