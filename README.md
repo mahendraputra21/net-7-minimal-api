@@ -33,12 +33,12 @@ dotnet publish command --os linux --arch x64
 docker run -it --rm -p 8080:80 todo-min-api:v1
 ```
 ![image](https://user-images.githubusercontent.com/31196162/209963110-2e197c74-2d99-49ce-ab9d-fcf353184854.png)
+
+### Type in the browser http://localhost:8080/swagger
 ![image](https://user-images.githubusercontent.com/31196162/209963554-ef21ff5c-8c7f-4b49-85c0-2a430efdbbe5.png)
 
 
-
-
-### Create a Dummy Token using dotnet CLI
+### Create JSON Web Tokens in development using dotnet CLI
 ```
 dotnet user-jwts create
 ```
@@ -48,3 +48,4 @@ dotnet user-jwts create
 ## References
 - https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2204
 - https://learn.microsoft.com/en-us/dotnet/core/install/windows?tabs=net70
+- https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-7.0&tabs=windows
