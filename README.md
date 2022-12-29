@@ -30,9 +30,9 @@ dotnet publish --os linux --arch x64
 
 ### Run the Container Image with Docker Command
 ```
-docker run -it --rm -p 8080:80 -e ASPNETCORE_ENVIRONMENT='Development' todo-min-api:v1
+docker run -it --rm -p 8080:80 todo-min-api:v1
 ```
-![image](https://user-images.githubusercontent.com/31196162/209966487-e61a6d20-2bf1-4110-8ac5-aceae925ad67.png)
+![image](https://user-images.githubusercontent.com/31196162/209968830-1a42cf48-b486-4239-9c77-70dd19e419b3.png)
 
 
 ### Type in the browser http://localhost:8080/swagger
