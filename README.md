@@ -1,4 +1,4 @@
-# .NET 7 Minimal API Using Docker Dotnet CLI
+# .NET 7 Minimal API Build Image Docker using Dotnet CLI
 
 ### Add the Microsoft.NET.Build.Containers nuget package using package manager console
 
