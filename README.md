@@ -32,7 +32,7 @@ dotnet publish --os linux --arch x64
 ```
 docker run -it --rm -p 8080:80 todo-min-api:v1
 ```
-![image](https://user-images.githubusercontent.com/31196162/209968830-1a42cf48-b486-4239-9c77-70dd19e419b3.png)
+![image](https://user-images.githubusercontent.com/31196162/209976211-7761acb3-1b30-47d0-b4ba-3e46cd476be0.png)
 
 
 ### Type in the browser http://localhost:8080/swagger
@@ -62,5 +62,5 @@ docker push dewamahendra31/todo-minimal-api7:v1
 ```
 dotnet user-jwts create
 ```
-![image](https://user-images.githubusercontent.com/31196162/209964196-c9ddfd77-90a4-484b-bff0-3cec1b060b69.png)
+![image](https://user-images.githubusercontent.com/31196162/209976319-9e7737a0-d075-4ae9-b44b-b7189d74b753.png)
 
