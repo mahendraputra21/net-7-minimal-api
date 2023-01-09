@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  myfristwebapp:
+    image: eu.gcr.io/liquid-evening-374015/todo-minimal-api7:v1
+    build:
+      context: .
+      dockerfile: MyFristWebApp/Dockerfile
