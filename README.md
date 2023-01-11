@@ -52,15 +52,17 @@ docker push dewamahendra31/todo-minimal-api7:v1
 ![image](https://user-images.githubusercontent.com/31196162/209971707-9d671683-eda5-44a5-9118-a89ed075bd70.png)
 ![image](https://user-images.githubusercontent.com/31196162/209971940-59e830f9-29a7-4a53-ab1c-c255d47392a2.png)
 
-
-## References
-- https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2204
-- https://learn.microsoft.com/en-us/dotnet/core/install/windows?tabs=net70
-- https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-7.0&tabs=windows
-
 #### Create JSON Web Tokens in development using dotnet CLI (for development purpose only)
 ```
 dotnet user-jwts create
 ```
 ![image](https://user-images.githubusercontent.com/31196162/209976319-9e7737a0-d075-4ae9-b44b-b7189d74b753.png)
+
+#### Google Cloud Platform CI/CD Work Flow
+![image](https://user-images.githubusercontent.com/31196162/211761921-75068dde-15e0-47f8-afca-e851f2452bfb.png)
+
+## References
+- https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2204
+- https://learn.microsoft.com/en-us/dotnet/core/install/windows?tabs=net70
+- https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-7.0&tabs=windows
 
