@@ -5,8 +5,6 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFristWebApp", "MyFristWebApp\MyFristWebApp.csproj", "{D36D2073-62BF-4A48-B91E-7F4698809B69}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2E41D548-7127-4E73-B3C0-F7A845447F81}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{D36D2073-62BF-4A48-B91E-7F4698809B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D36D2073-62BF-4A48-B91E-7F4698809B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D36D2073-62BF-4A48-B91E-7F4698809B69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E41D548-7127-4E73-B3C0-F7A845447F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E41D548-7127-4E73-B3C0-F7A845447F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E41D548-7127-4E73-B3C0-F7A845447F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E41D548-7127-4E73-B3C0-F7A845447F81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
