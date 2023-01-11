@@ -41,7 +41,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.MapGet("/", () => "Hello world Guys!");
+//app.MapGet("/", () => "Hello world Guys!");
 
 //to enable Authorization
 var todos = app.MapGroup("/todos");
