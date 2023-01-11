@@ -6,9 +6,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <PublishProfile>DefaultContainer</PublishProfile>
+    <!--<PublishProfile>DefaultContainer</PublishProfile>
     <ContainerImageName>todo-min-api</ContainerImageName>
-    <ContainerImageTag>v1</ContainerImageTag>
+    <ContainerImageTag>v1</ContainerImageTag>-->
 
   </PropertyGroup>
 
