@@ -36,12 +36,19 @@ builder.Services.Configure<SwaggerGeneratorOptions>(options =>
 builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddAuthorization();
 
+//bypass the cors
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
 
-//app.MapGet("/", () => "Hello world Guys!");
+//enable CORS, can be access by another language program
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()); 
 
 //to enable Authorization
 var todos = app.MapGroup("/todos");
