@@ -13,7 +13,7 @@
 # Please check the dll name and update accordingly.
 # This should create a Docker image for your application, and when you run the image, it should start the application in a container.
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine AS build
 WORKDIR /app
 
 COPY *.csproj .
@@ -21,7 +21,7 @@ RUN dotnet restore
 COPY . .
 RUN dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0-alpine
 WORKDIR /app
 COPY --from=build /app/out .
 ENTRYPOINT ["dotnet","MyFristWebApp.dll"]
