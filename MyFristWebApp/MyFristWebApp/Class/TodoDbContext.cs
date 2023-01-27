@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyFristWebApp.@class;
 
-class TodoDbContext : DbContext
+public class TodoDbContext : DbContext
 {
     public TodoDbContext(DbContextOptions<TodoDbContext> options)
         : base(options) { }

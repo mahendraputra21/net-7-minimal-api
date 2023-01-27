@@ -1,15 +1,19 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using MyFristWebApp.@class;
+using MyFristWebApp.Features;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// DbContext Configuration
 builder.Services.AddDbContext<TodoDbContext>(
     opt => opt.UseInMemoryDatabase("Todos"));
 builder.Services.AddEndpointsApiExplorer();
 
+// Add the TodoEndpoints class to the service container
+builder.Services.AddTransient<TodoEndpoints>();
+
+// Swagger Configuration
 builder.Services.AddSwaggerGen(options =>
 {
     options.InferSecuritySchemes();
@@ -32,7 +36,6 @@ builder.Services.Configure<SwaggerGeneratorOptions>(options =>
 {
     options.InferSecuritySchemes = true;
 });
-
 builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddAuthorization();
 
@@ -42,59 +45,17 @@ builder.Services.AddCors(c =>
     c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
-var app = builder.Build();
+//------------------------------------------------------------------------------------------------
 
+var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
 //enable CORS, can be access by another language program
-app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()); 
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
-//to enable Authorization
-var todos = app.MapGroup("/todos");
-    //.RequireAuthorization();
-
-todos.MapGet("/", (TodoDbContext db) => 
-    db.Todos.ToListAsync());
-
-todos.MapPost("/", async (Todo todo, TodoDbContext db) =>
-{
-    db.Todos.Add(todo);
-    await db.SaveChangesAsync();
-    return TypedResults.Created($"/todos/{todo.Id}", todo);
-});
-
-todos.MapGet("/{id}", async Task<Results<Ok<Todo>, NotFound>>(int id, TodoDbContext db) =>
-    await db.Todos.FindAsync(id) 
-        is Todo todo
-          ? TypedResults.Ok(todo)
-          : TypedResults.NotFound());
-
-todos.MapPut("/{id}", async Task<Results<NotFound, NoContent>> (int id, TodoDbContext db, Todo inputTodo) => 
-{
-    var todo = await db.Todos.FindAsync(id);
-    
-    if(todo is null)
-        return TypedResults.NotFound();
-
-    todo.Name = inputTodo.Name;
-    todo.IsCompleted= inputTodo.IsCompleted;
-
-    await db.SaveChangesAsync();
-
-    return TypedResults.NoContent();
-});
-
-todos.MapDelete("/{id}", async Task<Results<Ok<Todo>, NotFound>>(int id, TodoDbContext db) => 
-{ 
-    if(await db.Todos.FindAsync(id) is Todo todo)
-    {
-        db.Todos.Remove(todo);
-        await db.SaveChangesAsync();
-        return TypedResults.Ok(todo);
-    }
-
-    return  TypedResults.NotFound();
-});
+// Create a new TodoEndpoints instance and pass in the TodoDbContext
+var endpoints = app.Services.GetService<TodoEndpoints>();
+endpoints?.MapEndpoints(app);
 
 app.Run();
