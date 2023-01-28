@@ -13,20 +13,20 @@ namespace MyFristWebApp.Features
             _db = db;
         }
 
-        private async Task<Results<Ok<Todo>, NotFound>> GetTodo(int id, TodoDbContext db)
+        public async Task<Results<Ok<Todo>, NotFound>> GetTodo(int id)
         {
             if (await _db.Todos.FindAsync(id) is Todo todo)
                 return TypedResults.Ok(todo);
 
             return TypedResults.NotFound();
         }
-        private async Task<Results<Created<Todo>, NotFound>> AddTodo(Todo todo)
+        public async Task<Results<Created<Todo>, NotFound>> AddTodo(Todo todo)
         {
             _db.Todos.Add(todo);
             await _db.SaveChangesAsync();
             return TypedResults.Created($"/todos/{todo.Id}", todo);
         }
-        private async Task<Results<NotFound, NoContent>> UpdateTodo(int id, Todo inputTodo)
+        public async Task<Results<NotFound, NoContent>> UpdateTodo(int id, Todo inputTodo)
         {
             var todo = await _db.Todos.FindAsync(id);
 
@@ -40,7 +40,7 @@ namespace MyFristWebApp.Features
 
             return TypedResults.NoContent();
         }
-        private async Task<Results<Ok<Todo>, NotFound>> MapDelete(int id)
+        public async Task<Results<Ok<Todo>, NotFound>> DeleteTodo(int id)
         {
             if (await _db.Todos.FindAsync(id) is Todo todo)
             {
@@ -65,7 +65,7 @@ namespace MyFristWebApp.Features
 
             todos?.MapPut("/{id}", async (int id, Todo inputTodo) => await UpdateTodo(id, inputTodo));
 
-            todos?.MapDelete("/{id}", MapDelete);
+            todos?.MapDelete("/{id}", DeleteTodo);
 
         }
 
