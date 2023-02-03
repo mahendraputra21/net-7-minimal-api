@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-	<RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+	<RuntimeIdentifier Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'">linux-x64</RuntimeIdentifier>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
