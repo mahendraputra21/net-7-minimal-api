@@ -48,14 +48,19 @@ builder.Services.AddCors(c =>
 //------------------------------------------------------------------------------------------------
 
 var app = builder.Build();
+
+// Create a new TodoEndpoints instance and pass in the TodoDbContext
+using (var scope = app.Services.CreateScope())
+{
+    scope.ServiceProvider.GetRequiredService<TodoDbContext>();
+    var endpoints = scope.ServiceProvider.GetRequiredService<TodoEndpoints>();
+    endpoints.MapEndpoints(app);
+}
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
 //enable CORS, can be access by another language program
 app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-// Create a new TodoEndpoints instance and pass in the TodoDbContext
-var endpoints = app.Services.GetService<TodoEndpoints>();
-endpoints?.MapEndpoints(app);
 
 app.Run();
