@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-	<!--<RuntimeIdentifier>x64</RuntimeIdentifier>-->
+	<RuntimeIdentifier>x64</RuntimeIdentifier>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!--<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>-->
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
