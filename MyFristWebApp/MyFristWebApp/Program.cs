@@ -11,7 +11,7 @@ builder.Services.AddDbContext<TodoDbContext>(
 builder.Services.AddEndpointsApiExplorer();
 
 // Add the TodoEndpoints class to the service container
-builder.Services.AddTransient<TodoEndpoints>();
+builder.Services.AddScoped<TodoEndpoints>();
 
 // Swagger Configuration
 builder.Services.AddSwaggerGen(options =>
@@ -50,12 +50,14 @@ builder.Services.AddCors(c =>
 var app = builder.Build();
 
 // Create a new TodoEndpoints instance and pass in the TodoDbContext
-using (var scope = app.Services.CreateScope())
-{
-    scope.ServiceProvider.GetRequiredService<TodoDbContext>();
-    var endpoints = scope.ServiceProvider.GetRequiredService<TodoEndpoints>();
-    endpoints.MapEndpoints(app);
-}
+var endpoints = app.Services.CreateScope().ServiceProvider.GetService<TodoEndpoints>();
+endpoints?.MapEndpoints(app);
+
+app.UseRouting();
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints?.MapControllers();
+//});
 
 app.UseSwagger();
 app.UseSwaggerUI();
