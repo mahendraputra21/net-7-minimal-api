@@ -21,8 +21,11 @@ jobs:
       - name: Restore
         run: dotnet restore ./MyFristWebApp/MyFristWebApp.sln
         
+      - name: Test
+        run: dotnet test ./MyFristWebApp/TodoTestProject/TodoTestProject.csproj --configuration Release --no-restore
+        
       - name: Build
-        run: dotnet build ./MyFristWebApp/MyFristWebApp.sln --configuration Release --no-restore
+        run: dotnet build ./MyFristWebApp/MyFristWebApp.sln --configuration Release --no-restore 
       
       - name: Publish
         run: dotnet publish ./MyFristWebApp/MyFristWebApp.sln --configuration Release --no-build
