@@ -18,7 +18,7 @@ namespace TodoTestProject.Features
             var endpoints = new TodoEndpoints(db);
 
             // Act
-            var result = await endpoints.UpdateTodo(1, new Todo { Name = "Updated Todo", IsCompleted = true });
+            var result = await endpoints.UpdateTodo(2, new Todo { Name = "Updated Todo", IsCompleted = true });
 
             // Assert
             var noContentResult = Assert.IsType<Results<NotFound, NoContent>>(result);
