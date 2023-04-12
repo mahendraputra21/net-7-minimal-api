@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Setup .NET
+      - name: Setup .NET API
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
@@ -24,11 +24,11 @@ jobs:
       - name: Restore
         run: dotnet restore ./MyFristWebApp/MyFristWebApp.sln
         
-      - name: Test
-        run: dotnet test ./MyFristWebApp/TodoTestProject/TodoTestProject.csproj --configuration ${{ env.CONFIGURATION }} --no-restore
-        
       - name: Build
         run: dotnet build ./MyFristWebApp/MyFristWebApp.sln --configuration ${{ env.CONFIGURATION }} --no-restore 
+        
+      - name: Test
+        run: dotnet test ./MyFristWebApp/TodoTestProject/TodoTestProject.csproj --configuration ${{ env.CONFIGURATION }} --no-build
       
       - name: Publish
         run: dotnet publish ./MyFristWebApp/MyFristWebApp.sln --configuration ${{ env.CONFIGURATION }} --no-build
