@@ -7,6 +7,8 @@ on:
     - main
     
 env:
+  AZURE_WEBAPP_NAME: todo-min-api7
+  AZURE_WEBAPP_PACKAGE_PATH: "./publish"
   CONFIGURATION: Release
   
 jobs:
@@ -31,5 +33,13 @@ jobs:
         run: dotnet test ./MyFristWebApp/TodoTestProject/TodoTestProject.csproj --configuration ${{ env.CONFIGURATION }} --no-build
       
       - name: Publish
-        run: dotnet publish ./MyFristWebApp/MyFristWebApp.sln --configuration ${{ env.CONFIGURATION }} --no-build
+        run: dotnet publish ./MyFristWebApp/MyFristWebApp.sln --configuration ${{ env.CONFIGURATION }} --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        
+      - name: Deployment
+        uses: actions/webapp-deploy@v2
+        with:
+          app-name:  ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package:  "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+          
       
