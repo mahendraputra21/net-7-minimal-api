@@ -10,6 +10,10 @@ namespace TodoTestProject.Class
              .UseInMemoryDatabase(databaseName: "Todos")
              .Options;
             var dbContext = new TodoDbContext(options);
+
+            dbContext.Database.EnsureDeleted();
+            dbContext.Database.EnsureCreated();
+
             return dbContext;
         }
     }
