@@ -13,6 +13,8 @@ namespace TodoTestProject.Features
         {
             // Arrange
             var db = GetInMemoryDbContext();
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
             var endpoints = new TodoEndpoints(db);
             var todo = new Todo { Name = "Test Todo", IsCompleted = false };
 
@@ -22,7 +24,7 @@ namespace TodoTestProject.Features
 
             // Assert
             Assert.IsType<Results<Created<Todo>, NotFound>>(result);
-            Assert.Equal(2, await db.Todos.CountAsync());
+            Assert.Equal(1, await db.Todos.CountAsync());
             Assert.Equal(todo, actual);
 
         }

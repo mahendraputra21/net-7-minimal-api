@@ -13,7 +13,9 @@ namespace TodoTestProject.Features
         {
             // Arrange
             var db = GetInMemoryDbContext();
-            var todo = new Todo { Id = 1, Name = "Test Todo" };
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
+            var todo = new Todo { Name = "Test Todo1", IsCompleted = false };
             db.Todos.Add(todo);
             db.SaveChanges();
             var endpoints = new TodoEndpoints(db);
@@ -33,10 +35,12 @@ namespace TodoTestProject.Features
         {
             // Arrange
             var db = GetInMemoryDbContext();
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
             var endpoints = new TodoEndpoints(db);
 
             // Act
-            var result = await endpoints.GetTodo(1);
+            var result = await endpoints.GetTodo(9);
 
             // Assert
             Assert.IsType<Results<Ok<Todo>, NotFound>>(result);
