@@ -22,7 +22,7 @@ namespace TodoTestProject.Features
 
             // Assert
             Assert.IsType<Results<Created<Todo>, NotFound>>(result);
-            Assert.Equal(1, await db.Todos.CountAsync());
+            Assert.Equal(2, await db.Todos.CountAsync());
             Assert.Equal(todo, actual);
 
         }
